@@ -17,6 +17,7 @@ public class Tiling : MonoBehaviour
     float spriteWidth = 0f;
     Camera cam;
     Transform myTransform;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -27,8 +28,9 @@ public class Tiling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteWidth = spriteRenderer.sprite.bounds.size.x * myTransform.localScale.x;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteWidth = spriteRenderer.sprite.bounds.size.x * myTransform.localScale.x;
+        spriteWidth = spriteRenderer.sprite.bounds.size.x;
     }
 
     // Update is called once per frame
@@ -43,18 +45,23 @@ public class Tiling : MonoBehaviour
             float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtent;
             float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2) + camHorizontalExtent;
 
+            bool toFlip = false;
+            if (reverseScale) {
+                toFlip = !spriteRenderer.flipX;
+            }
+
             // cam we see the edge of an element ?
             if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && !hasARightBuddy) {
-                MakeNewBuddy(1);
+                MakeNewBuddy(1, toFlip);
                 hasARightBuddy = true;
             } else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && !hasALeftBuddy) {
-                MakeNewBuddy(-1);
+                MakeNewBuddy(-1, toFlip);
                 hasALeftBuddy = true;
             }
         }
     }
 
-    void MakeNewBuddy(int rightOrLeft) {
+    void MakeNewBuddy(int rightOrLeft, bool flipx) {
         // rightOrLeft = 1 or -1
 
         // calculate position for the new Buddy
@@ -63,12 +70,17 @@ public class Tiling : MonoBehaviour
         Transform newBuddy = Instantiate(myTransform, newPosition, myTransform.rotation) as Transform;
 
         // if not tilable -> reverse x size to take get rid of ugly seams
+        /*
         if (reverseScale) {
-            newBuddy.localScale = new Vector3(newBuddy.localScale.x * -1, newBuddy.localScale.y, newBuddy.localScale.z);
+            //newBuddy.localScale = new Vector3(newBuddy.localScale.x * -1, newBuddy.localScale.y, newBuddy.localScale.z);
         }
+        */
 
-        //newBuddy.parent = myTransform.parent;
-        newBuddy.parent = myTransform;
+        SpriteRenderer spriteRenderer = newBuddy.GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = flipx;
+
+        newBuddy.parent = myTransform.parent;
+        //newBuddy.parent = myTransform;
 
         if (rightOrLeft > 0)
         {
