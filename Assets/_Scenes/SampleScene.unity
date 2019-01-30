@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126896907}
   - component: {fileID: 126896906}
+  - component: {fileID: 126896908}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -160,6 +161,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &126896908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126896905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a96576b4a4b8d49a20471838732d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &192266985
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +450,7 @@ MonoBehaviour:
   lookAheadFactor: 1.5
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+  yPosRestriction: -1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -679,34 +693,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &914819917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 914819917, guid: 52999896e68aeb84aaa56285f6c540e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1689956275}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &914819920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914819917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 789a131328e3de54cbeb882b31d52a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireRate: 0
-  effectSpawnRate: 10
-  damage: 10
-  whatToHit:
-    serializedVersion: 2
-    m_Bits: 563
-  BulletTrailPrefab: {fileID: 753541213321555218, guid: 6399d7c45af35d24d819c02ec22d92d1,
-    type: 3}
-  MuzzleFlashPrefab: {fileID: 5607598329550861032, guid: 91fa3c84e784e744894a1bf6c08f5e42,
-    type: 3}
 --- !u!4 &1148876434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6,
