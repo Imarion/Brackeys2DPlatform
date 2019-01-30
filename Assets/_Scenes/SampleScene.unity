@@ -698,10 +698,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0
+  effectSpawnRate: 10
   damage: 10
   whatToHit:
     serializedVersion: 2
     m_Bits: 563
+  BulletTrailPrefab: {fileID: 753541213321555218, guid: 6399d7c45af35d24d819c02ec22d92d1,
+    type: 3}
 --- !u!4 &1148876434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6,
