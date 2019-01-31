@@ -237,7 +237,7 @@ Transform:
   m_Children:
   - {fileID: 2025634045}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452652064
 GameObject:
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 452652067}
   - component: {fileID: 452652066}
   - component: {fileID: 452652065}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 520602675}
   - component: {fileID: 520602674}
   - component: {fileID: 520602676}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &520602676
 BoxCollider2D:
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 1340166700}
   - component: {fileID: 1340166699}
   - component: {fileID: 1340166698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,93 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1371640067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371640069}
+  - component: {fileID: 1371640068}
+  m_Layer: 0
+  m_Name: AStar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1371640068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371640067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIezW5SJxSQIAAO4EAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SsenesZoE5c99Zix+nBsSduJxcuAi2gsZAYScQfGf/3rgQY4k5Plva91b59u+aDcGlqyKzSa83ZRjEg3yfEncmXyQA+w4kWSu75BXrOG2e2dCTqOa/UcoXx0KUZVYHVPPshC+HIAQYbyXOlqxUrIFbGGgznVBhASCvrsiWGPibkhD/ThUs54ymau9MFT4tgcsVjBtKCHqg9sae1rEZmglY1MCd5ID/07IeWJrGZjuGEZ0oIbjolxJ5r3+krPbs+GafYlS8d4bUEXpS2u9wSt3luwHZyND0vuUZz2hfJT9U6VlFzaDW9U9H44kE084LaVzf/EKahh3Otque+cBi4Irbk2QElZtTYkafj8HJQHnpvjlQcaCrgrQT5otZaNZIhaHXjUhsD0XK43nqLS8gOQ7yVehds6v9PxvVw9e2fYsGrtIPwuhfKW+2nDhqH8gvl+p0wHQujTsMfA79pMV6eDnji2liEuh6lE5eqRjsqWXnHXC+NjZWW4MOd5BokFfa8w2fs/QTvsFHZO+SJur9JV7zD+u2/S/HhgR8Ed9BOHW+jMqU6bsCU28YKLmEQ7YAX9ClWUrYLNvakT9s3OqfZKK1oOPu8WATSNJhnUbig+YLOvz1OH2fhgs1m0ewrC9MoyInfPC6xTyp2rdDOHpza2BOJa9Z/PiZrTWu/7UzT45pfKjXynMtc7TMNILefnzCgsQr+I9mKcXRoD9Zy6QdOPhIiVHYAltweSnyrq5PVNBleSUjN35V1kYTE/nuRkCu5/gVQSwMEFAAACAgAAAgh7D7j51BsAAAAdwAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSM9FRUEovSizIKAYKGII4pZkpIHa0UmpSkoF5spGhZWKaZaK5hZmumYmhZYqJiZGJcYphkpFBmlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHs1uUicUkCAADuBAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsPuPnUGwAAAB3AAAACQAkAAAAAAAAAAAAAACWAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAE0DAAAAAA==
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1371640069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371640067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511864997
 GameObject:
@@ -773,7 +859,7 @@ Transform:
   m_Children:
   - {fileID: 192266987}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574159175
 GameObject:
@@ -900,7 +986,7 @@ Transform:
   m_Children:
   - {fileID: 1574159177}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1689956275
 PrefabInstance:
@@ -943,7 +1029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -970,7 +1056,7 @@ GameObject:
   - component: {fileID: 1796807054}
   - component: {fileID: 1796807053}
   - component: {fileID: 1796807055}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1796807055
 BoxCollider2D:
