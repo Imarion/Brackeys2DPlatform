@@ -6,14 +6,16 @@ public class GameMaster : MonoBehaviour
 {
     public Transform playerPrefab;
     public Transform spawnPoint;
-    public int spawnDelay = 2;
+    public float spawnDelay = 2.0f;
+    public Transform spawnPrefab;
+    public AudioSource respawnAudioCountdown;
 
     public static GameMaster gm;
     
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         if (gm == null) {
             gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         }
@@ -26,8 +28,11 @@ public class GameMaster : MonoBehaviour
     }
 
     public IEnumerator RespawnPlayer() {
+        respawnAudioCountdown.Play();
         yield return new WaitForSeconds(spawnDelay);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
+        Destroy(clone.gameObject, 3f);
     }
 
     public static void KillPlayer(Player player) {
