@@ -43,6 +43,47 @@ public class EnemyAI : MonoBehaviour
 
         // Start a new path to the target position, return the result to the OnPathComplete method
         seeker.StartPath(transform.position, target.position, OnPathComplete);
+
+        StartCoroutine(UpdatePath());
+
+    }
+
+    void FixedUpdate()
+    {
+        if (target == null)
+        {
+            // TODO: insert a player search
+            return;
+        }
+
+        // TODO: always look at player
+
+        if (path == null)
+            return;
+
+        if (curentWaypoint >= path.vectorPath.Count) {
+            if (pathIsEnded)
+                return;
+            Debug.Log("End of path reached.");
+            pathIsEnded = true;
+            return;
+        }
+
+        pathIsEnded = false;
+
+        // Direction to the next waypoint
+        Vector3 dir = (path.vectorPath[curentWaypoint] - transform.position).normalized;
+        dir *= speed * Time.fixedDeltaTime;
+
+        // Actually move the AI
+        rb.AddForce(dir, fMode);
+
+        float dist = Vector3.Distance(transform.position, path.vectorPath[curentWaypoint]);
+        if (dist < nextWaypointDistance) {
+            curentWaypoint++;
+            return;
+        }
+
     }
 
     // Update is called once per frame
@@ -58,4 +99,16 @@ public class EnemyAI : MonoBehaviour
             curentWaypoint = 0;
         }
     }
+
+    IEnumerator UpdatePath() {
+        if (target == null) {
+            // TODO: insert a player search
+            yield return false;
+        }
+
+        seeker.StartPath(transform.position, target.position, OnPathComplete);
+        yield return new WaitForSeconds(1f / updateRate);
+        StartCoroutine(UpdatePath());
+    }
+
 }
