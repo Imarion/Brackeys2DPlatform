@@ -47,6 +47,44 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
+     void FixedUpdate()
+    {
+        if (target == null)
+        {
+            // TODO: insert player search
+            return;
+        }
+
+        // TODO: always look at player
+
+        if (path == null)
+            return;
+
+        if (curentWaypoint >= path.vectorPath.Count) {
+            if (pathIsEnded) {
+                return;
+            }
+            Debug.Log("End of path reached.");
+            pathIsEnded = true;
+            return;
+        }
+
+        pathIsEnded = false;
+
+        // Direction to the next waypoint
+        Vector3 dir = (path.vectorPath[curentWaypoint] - transform.position).normalized;
+        dir *= speed * Time.fixedDeltaTime;
+
+        // Move the AI
+        rb.AddForce(dir, fMode);
+        float dist = Vector3.Distance(transform.position, path.vectorPath[curentWaypoint]);
+
+        if (dist < nextWaypointDistance) {
+            curentWaypoint++;
+            return;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
