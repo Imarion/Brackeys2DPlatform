@@ -632,6 +632,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &732104387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 738070347728897247, guid: fc7b7bd4d9aae9a49adc54df8d006130,
+    type: 3}
+  m_PrefabInstance: {fileID: 1911311268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &732104393
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732104387}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.88461536
 --- !u!4 &1148876434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6,
@@ -1223,6 +1245,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1148876434}
+    - target: {fileID: 7705074996148725839, guid: fc7b7bd4d9aae9a49adc54df8d006130,
+        type: 3}
+      propertyPath: speed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511353016313696088, guid: fc7b7bd4d9aae9a49adc54df8d006130,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511353016313696088, guid: fc7b7bd4d9aae9a49adc54df8d006130,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7b7bd4d9aae9a49adc54df8d006130, type: 3}
 --- !u!1 &2025634043
