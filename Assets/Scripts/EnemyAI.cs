@@ -30,6 +30,8 @@ public class EnemyAI : MonoBehaviour
     // The waypoint we are currently moving towards
     private int curentWaypoint = 0;
 
+    private bool searchingForPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,13 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         if (target == null) {
-            Debug.LogError("No player found !");
+            //Debug.LogError("No player found !");
+
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
+
             return;
         }
 
@@ -51,7 +59,12 @@ public class EnemyAI : MonoBehaviour
     {
         if (target == null)
         {
-            // TODO: insert player search
+            //Debug.LogError("No player found !");
+            if (!searchingForPlayer)
+            {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
@@ -91,16 +104,42 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    IEnumerator UpdatePath() {
-        if (target == null) {
-            // TODO: insert player search
+    IEnumerator SearchForPlayer() {
+        GameObject sResult = GameObject.FindGameObjectWithTag("Player");
+
+        if (sResult == null)
+        {
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(SearchForPlayer());
+        }
+        else {
+            searchingForPlayer = false;
+            target = sResult.transform;
+            StartCoroutine(UpdatePath());
             yield return false;
         }
+        
+    }
 
-        seeker.StartPath(transform.position, target.position, OnPathComplete);
+    IEnumerator UpdatePath() {
 
-        yield return new WaitForSeconds( 1f / updateRate );
-        StartCoroutine(UpdatePath());
+        if (target == null)
+        {
+            //Debug.LogError("No player found !");
+            if (!searchingForPlayer)
+            {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
+            yield return false;
+        } else
+        {
+            seeker.StartPath(transform.position, target.position, OnPathComplete);
+
+            yield return new WaitForSeconds(1f / updateRate);
+            StartCoroutine(UpdatePath());
+        }
+
     }
 
     public void OnPathComplete(Path p) {
