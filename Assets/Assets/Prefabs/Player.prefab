@@ -171,6 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38b6e5569aa0ca42aede8992a363b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallBoundary: -20
+  playerStats:
+    Health: 100
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,8 +374,10 @@ MonoBehaviour:
   damage: 10
   whatToHit:
     serializedVersion: 2
-    m_Bits: 563
+    m_Bits: 1587
   BulletTrailPrefab: {fileID: 753541213321555218, guid: 6399d7c45af35d24d819c02ec22d92d1,
+    type: 3}
+  hitPrefab: {fileID: 5427222558386344579, guid: 4f0ec614ba4b3a8498adc88920e5707d,
     type: 3}
   MuzzleFlashPrefab: {fileID: 5607598329550861032, guid: 91fa3c84e784e744894a1bf6c08f5e42,
     type: 3}
