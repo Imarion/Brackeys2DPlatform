@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1908604078624050079}
   - component: {fileID: 1908604078624050073}
   - component: {fileID: 3365328225133806857}
+  - component: {fileID: 10005764}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: GameMaster
@@ -165,6 +166,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &10005764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908604078624050076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758462b016168d944a8ac3efe4d58f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!1 &8511248614622963458
 GameObject:
   m_ObjectHideFlags: 0

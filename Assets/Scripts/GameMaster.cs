@@ -11,14 +11,20 @@ public class GameMaster : MonoBehaviour
     public AudioSource respawnAudioCountdown;
 
     public static GameMaster gm;
-    
+
+
+    private void Awake()
+    {
+        if (gm == null)
+        {
+            gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {        
-        if (gm == null) {
-            gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
-        }
+
     }
 
     // Update is called once per frame

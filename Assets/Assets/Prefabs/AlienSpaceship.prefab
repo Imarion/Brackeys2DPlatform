@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 886268489268779944}
   - component: {fileID: 4511353016313696088}
   - component: {fileID: 732104393}
+  - component: {fileID: 732104388}
   m_Layer: 0
   m_Name: AlienSpaceship
   m_TagString: Untagged
@@ -166,3 +167,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.88461536
+--- !u!114 &732104388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738070347728897247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c9c989daa737f41902461c299ca104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats:
+    Health: 100

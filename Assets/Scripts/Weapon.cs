@@ -10,6 +10,11 @@ public class Weapon : MonoBehaviour
     public int damage = 10;
     public LayerMask whatToHit;
 
+    // Handle camera shaking
+    public float camShakeAmt = 0.1f;
+    public float camShakeLength = 0.1f;
+    CameraShake camShake;
+
     public Transform BulletTrailPrefab;
     public Transform hitPrefab;
     public Transform MuzzleFlashPrefab;
@@ -30,7 +35,10 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        camShake = GameMaster.gm.GetComponent<CameraShake>();
+        if (camShake == null) {
+            Debug.LogError("No camera CameraShake found on gm object.");
+        }
     }
 
     // Update is called once per frame
@@ -56,7 +64,7 @@ public class Weapon : MonoBehaviour
         Vector2 firePointPosition = new Vector2(firepoint.position.x, firepoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
 
-        Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.cyan);
+        //Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.cyan);
 
         if (hit.collider != null) {
             Debug.DrawLine(firePointPosition, hit.point, Color.red);
@@ -108,5 +116,8 @@ public class Weapon : MonoBehaviour
         float size = Random.Range(0.6f, 0.9f);
         clone.localScale = new Vector3(size, size, size);
         Destroy(clone.gameObject, 0.02f);
+
+        //Shake the camera
+        camShake.Shake(camShakeAmt, camShakeLength);
     }
 }
