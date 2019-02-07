@@ -375,6 +375,8 @@ MonoBehaviour:
   whatToHit:
     serializedVersion: 2
     m_Bits: 1587
+  camShakeAmt: 0.05
+  camShakeLength: 0.1
   BulletTrailPrefab: {fileID: 753541213321555218, guid: 6399d7c45af35d24d819c02ec22d92d1,
     type: 3}
   hitPrefab: {fileID: 5427222558386344579, guid: 4f0ec614ba4b3a8498adc88920e5707d,

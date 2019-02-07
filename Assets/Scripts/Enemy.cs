@@ -7,15 +7,33 @@ public class Enemy : MonoBehaviour
     [System.Serializable]
     public class EnemyStats
     {
-        public int Health = 100;
+        public int maxHealth = 100;
+
+        private int _curHealth;
+        public int curHealth {
+            get { return _curHealth; }
+            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
+        }
+
+        public void Init() {
+            curHealth = maxHealth;
+        }
     }
 
     public EnemyStats enemyStats = new EnemyStats();
 
+    [Header("Optional")]
+    [SerializeField]
+    private StatusIndicator statusIndicator;
+
     // Start is called before the first frame update
     void Start()
     {
+        enemyStats.Init();
 
+        if (statusIndicator != null) {
+            statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
+        }
     }
 
     // Update is called once per frame
@@ -26,11 +44,16 @@ public class Enemy : MonoBehaviour
 
     public void DamageEnemy(int damage)
     {
-        enemyStats.Health -= damage;
+        enemyStats.curHealth -= damage;
 
-        if (enemyStats.Health <= 0)
+        if (enemyStats.curHealth <= 0)
         {
             GameMaster.KillEnemy(this);
+        }
+
+        if (statusIndicator != null)
+        {
+            statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
         }
     }
 }
