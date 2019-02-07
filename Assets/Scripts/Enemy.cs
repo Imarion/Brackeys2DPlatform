@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public class EnemyStats
     {
         public int maxHealth = 100;
+        public int damage = 40;
 
         private int _curHealth;
         public int curHealth {
@@ -54,6 +55,16 @@ public class Enemy : MonoBehaviour
         if (statusIndicator != null)
         {
             statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player _player = collision.gameObject.GetComponent<Player>();
+
+        if (_player != null) {
+            _player.DamagePlayer(enemyStats.damage);
+            DamageEnemy(9999999);
         }
     }
 }
