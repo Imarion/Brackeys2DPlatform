@@ -450,4 +450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats:
     maxHealth: 100
+    damage: 40
+  shakeAmt: 0.1
+  shakeLength: 0.1
+  deathParticles: {fileID: 5607533606648921238, guid: cad36c69a9d84c047aaaf03dd40e390a,
+    type: 3}
   statusIndicator: {fileID: 577666975}

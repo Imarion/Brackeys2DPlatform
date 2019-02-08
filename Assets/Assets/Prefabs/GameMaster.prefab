@@ -70,6 +70,7 @@ MonoBehaviour:
   spawnPrefab: {fileID: 7172448872788089608, guid: 808d5490e8770f34eb7866700b984a5d,
     type: 3}
   respawnAudioCountdown: {fileID: 3365328225133806857}
+  cameraShake: {fileID: 10005764}
 --- !u!82 &3365328225133806857
 AudioSource:
   m_ObjectHideFlags: 0

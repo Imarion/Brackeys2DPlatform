@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
 
     public EnemyStats enemyStats = new EnemyStats();
 
+    public float shakeAmt = 0.1f;
+    public float shakeLength = 0.1f;
+
+    public Transform deathParticles;
+
     [Header("Optional")]
     [SerializeField]
     private StatusIndicator statusIndicator;
@@ -34,6 +39,10 @@ public class Enemy : MonoBehaviour
 
         if (statusIndicator != null) {
             statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
+        }
+
+        if (deathParticles == null) {
+            Debug.LogError("No deathparticles referenced on Enemy");
         }
     }
 

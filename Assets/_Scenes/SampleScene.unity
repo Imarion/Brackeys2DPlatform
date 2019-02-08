@@ -1560,5 +1560,9 @@ PrefabInstance:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 1687521306}
+    - target: {fileID: 10005764, guid: 7424e7d0c5aae8c4fa4e6473c6ddb295, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7424e7d0c5aae8c4fa4e6473c6ddb295, type: 3}

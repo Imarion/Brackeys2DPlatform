@@ -10,6 +10,8 @@ public class GameMaster : MonoBehaviour
     public Transform spawnPrefab;
     public AudioSource respawnAudioCountdown;
 
+    public CameraShake cameraShake;
+
     public static GameMaster gm;
 
 
@@ -23,8 +25,10 @@ public class GameMaster : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
-
+    {
+        if (cameraShake == null) {
+            Debug.LogError("No cameraShake referenced in Gamemaster");
+        }
     }
 
     // Update is called once per frame
@@ -46,7 +50,14 @@ public class GameMaster : MonoBehaviour
         gm.StartCoroutine(gm.RespawnPlayer());
     }
 
-    public static void KillEnemy(Enemy enemy) {
-        Destroy(enemy.gameObject);
+    public static void KillEnemy(Enemy _enemy) {
+        gm._KillEnemy(_enemy);
+    }
+
+    public void _KillEnemy(Enemy _enemy) {
+        Transform clone = Instantiate( _enemy.deathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
+        Destroy(clone.gameObject, 3f);
+        cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
+        Destroy(_enemy.gameObject);
     }
 }
