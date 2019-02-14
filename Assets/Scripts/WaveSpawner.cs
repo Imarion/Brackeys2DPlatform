@@ -22,12 +22,16 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
+    public int NextWave { get { return nextWave + 1; } }
 
     public Transform[] spawnPoints;
 
     public float timeBetweenWaves = 5f; // in seconds
     private float waveCountDown;
+    public float WaveCountDown { get { return waveCountDown; } }
+
     private SpawnState state = SpawnState.COUNTING;
+    public SpawnState State { get { return state; } }
 
     private float searchCountdDown = 1f; // search for enemy every x seconds
 
