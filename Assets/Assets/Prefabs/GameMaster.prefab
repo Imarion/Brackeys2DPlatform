@@ -72,6 +72,7 @@ MonoBehaviour:
     type: 3}
   respawnAudioCountdown: {fileID: 3365328225133806857}
   cameraShake: {fileID: 10005764}
+  gameOverUI: {fileID: 0}
 --- !u!82 &3365328225133806857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -207,9 +208,9 @@ MonoBehaviour:
     count: 5
     rate: 2
   spawnPoints:
-  - {fileID: 5017377612187869395, guid: 567d546aeb9e5db41a4f39c137e4c305, type: 3}
-  - {fileID: 8236484275362669001, guid: fa5a157b862e8f44289b3aa8636779a2, type: 3}
-  - {fileID: 8170984853569431001, guid: 25f0e7d416b353148929f70d8ff3fed3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   timeBetweenWaves: 5
 --- !u!1 &8511248614622963458
 GameObject:

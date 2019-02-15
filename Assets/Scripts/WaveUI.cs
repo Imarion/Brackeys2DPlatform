@@ -65,7 +65,7 @@ public class WaveUI : MonoBehaviour
 
     void UpdateCountingUI() {
 
-        if (previousSate != WaveSpawner.SpawnState.COUNTING) { // we just switch to COUNTING; process COUNTING only once
+        if (previousSate != WaveSpawner.SpawnState.COUNTING) { // we just switched to COUNTING; process COUNTING only once
             //Debug.Log("COUNTING");
             waveAnimator.SetBool("WaveIncoming", false);
             waveAnimator.SetBool("WaveCountDown", true);
@@ -76,7 +76,7 @@ public class WaveUI : MonoBehaviour
 
     void UpdateSpawningUI()
     {
-        if (previousSate != WaveSpawner.SpawnState.SPAWNING) // we just switch to COUNTING; process SPAWNING only once
+        if (previousSate != WaveSpawner.SpawnState.SPAWNING) // we just switched to SPAWNING; process SPAWNING only once
         {
             //Debug.Log("SPAWNING");
             waveAnimator.SetBool("WaveCountDown", false);
