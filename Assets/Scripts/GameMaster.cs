@@ -17,7 +17,9 @@ public class GameMaster : MonoBehaviour
 
     public static GameMaster gm;
 
-    private static int _remainingLives = 3;
+    [SerializeField]
+    private int maxLives = 3;
+    private static int _remainingLives;
     public static int RemainingLives { get { return _remainingLives; } }
 
     private void Awake()
@@ -34,6 +36,7 @@ public class GameMaster : MonoBehaviour
         if (cameraShake == null) {
             Debug.LogError("No cameraShake referenced in Gamemaster");
         }
+        _remainingLives = maxLives;
     }
 
     // Update is called once per frame
