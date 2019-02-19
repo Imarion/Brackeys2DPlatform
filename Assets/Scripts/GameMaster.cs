@@ -8,7 +8,7 @@ public class GameMaster : MonoBehaviour
     public Transform spawnPoint;
     public float spawnDelay = 2.0f;
     public Transform spawnPrefab;
-    public AudioSource respawnAudioCountdown;
+    public string spawnSoundName;
 
     public CameraShake cameraShake;
 
@@ -21,6 +21,8 @@ public class GameMaster : MonoBehaviour
     private int maxLives = 3;
     private static int _remainingLives;
     public static int RemainingLives { get { return _remainingLives; } }
+
+    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -37,6 +39,13 @@ public class GameMaster : MonoBehaviour
             Debug.LogError("No cameraShake referenced in Gamemaster");
         }
         _remainingLives = maxLives;
+
+        // caching
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in the scene.");
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +60,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public IEnumerator RespawnPlayer() {
-        respawnAudioCountdown.Play();
+        audioManager.PlaySound(spawnSoundName);
         yield return new WaitForSeconds(spawnDelay);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
