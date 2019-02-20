@@ -71,6 +71,7 @@ MonoBehaviour:
     type: 3}
   respawnCountdownSoundName: RespawnCountDown
   spawnSoundName: Spawn
+  gameOverSoundName: GameOver
   cameraShake: {fileID: 10005764}
   gameOverUI: {fileID: 0}
   maxLives: 3
