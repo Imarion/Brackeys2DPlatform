@@ -351,34 +351,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72972567}
   m_CullTransparentMesh: 0
---- !u!1 &84959230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1908604078624050076, guid: 7424e7d0c5aae8c4fa4e6473c6ddb295,
-    type: 3}
-  m_PrefabInstance: {fileID: 1908604078648180885}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &84959231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84959230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d5475a4c90c3a4b86a147e0271fd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthRegenRate: 2
-  movementSpeed: 10
 --- !u!114 &187491989 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1908604078648180887, guid: 7424e7d0c5aae8c4fa4e6473c6ddb295,
     type: 3}
   m_PrefabInstance: {fileID: 1908604078648180885}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84959230}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fec46e9be4e0b084aa567b74c425e16a, type: 3}
@@ -550,7 +529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPGRADE
+  m_Text: UPGRADE (50)
 --- !u!222 &244476001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2281,7 +2260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPGRADE
+  m_Text: UPGRADE (50)
 --- !u!222 &1237048591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3597,6 +3576,7 @@ MonoBehaviour:
   speedText: {fileID: 582677432}
   healthMultiplier: 1.3
   movementSpeedMultiplier: 1.3
+  UpgradeCost: 50
 --- !u!1 &1687521305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3682,14 +3662,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 914819920, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
-      propertyPath: fireRate
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 914819920, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
-      propertyPath: damage
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52999896e68aeb84aaa56285f6c540e6, type: 3}
@@ -4229,11 +4201,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlienSpaceship
-      objectReference: {fileID: 0}
-    - target: {fileID: 738070347728897247, guid: fc7b7bd4d9aae9a49adc54df8d006130,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 284047456567875480, guid: fc7b7bd4d9aae9a49adc54df8d006130,
         type: 3}

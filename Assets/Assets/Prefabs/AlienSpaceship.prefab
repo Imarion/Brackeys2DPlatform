@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &284047456567875480
 Transform:
   m_ObjectHideFlags: 0
@@ -455,4 +455,6 @@ MonoBehaviour:
   shakeLength: 0.1
   deathParticles: {fileID: 5607533606648921238, guid: cad36c69a9d84c047aaaf03dd40e390a,
     type: 3}
+  deathSoundName: Explosion
+  moneyDrop: 10
   statusIndicator: {fileID: 577666975}

@@ -18,6 +18,9 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField]
     private float movementSpeedMultiplier = 1.2f;
 
+    [SerializeField]
+    private int UpgradeCost = 50;
+
     private PlayerStats playerStats;
 
     // Start is called before the first frame update
@@ -44,13 +47,29 @@ public class UpgradeMenu : MonoBehaviour
     }
 
     public void UpgradeHealth() {
+
+        if (GameMaster.Money < UpgradeCost) {
+            AudioManager.instance.PlaySound("NoMoney");
+            return;
+        }
         playerStats.maxHealth = (int)(playerStats.maxHealth * healthMultiplier);
+        GameMaster.Money -= UpgradeCost;
+        AudioManager.instance.PlaySound("Money");
+
         UpdateValues();
     }
 
     public void UpgradeSpeed()
     {
+        if (GameMaster.Money < UpgradeCost)
+        {
+            AudioManager.instance.PlaySound("NoMoney");
+            return;
+        }
         playerStats.movementSpeed = Mathf.Round(playerStats.movementSpeed * movementSpeedMultiplier);
+        GameMaster.Money -= UpgradeCost;
+        AudioManager.instance.PlaySound("Money");
+
         UpdateValues();
     }
 }

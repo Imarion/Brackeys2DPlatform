@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1908604078624050073}
   - component: {fileID: 10005764}
   - component: {fileID: 1908604078648180887}
+  - component: {fileID: 84959231}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: GameMaster
@@ -75,6 +76,7 @@ MonoBehaviour:
   cameraShake: {fileID: 10005764}
   gameOverUI: {fileID: 0}
   upgradeUI: {fileID: 0}
+  waveSpawner: {fileID: 1908604078648180887}
   maxLives: 3
   startingMoney: 100
 --- !u!114 &10005764
@@ -120,6 +122,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   timeBetweenWaves: 5
+--- !u!114 &84959231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908604078624050076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d5475a4c90c3a4b86a147e0271fd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthRegenRate: 5
+  movementSpeed: 10
 --- !u!1 &8511248614622963458
 GameObject:
   m_ObjectHideFlags: 0
