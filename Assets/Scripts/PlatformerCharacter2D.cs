@@ -11,6 +11,8 @@ namespace UnityStandardAssets._2D
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
+        [SerializeField] private string landingSoundName = "LandingFootsteps";
+
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
@@ -21,6 +23,8 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         Transform playerGraphics;
+
+        private AudioManager audioManager;
 
         private void Awake()
         {
@@ -36,9 +40,19 @@ namespace UnityStandardAssets._2D
             }
         }
 
+        void Start()
+        {
+            audioManager = AudioManager.instance;
+            if (audioManager == null)
+            {
+                Debug.LogError("No Audiomanager found in scene");
+            }
+        }
 
         private void FixedUpdate()
         {
+            bool wasGrounded = m_Grounded;
+
             m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -53,6 +67,10 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+            if (wasGrounded != m_Grounded && m_Grounded == true && m_Rigidbody2D.velocity.y != 0) {
+                audioManager.PlaySound(landingSoundName);
+            }
         }
 
 

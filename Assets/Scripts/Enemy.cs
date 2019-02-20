@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     public Transform deathParticles;
 
+    public string deathSoundName = "Explosion";
+
     [Header("Optional")]
     [SerializeField]
     private StatusIndicator statusIndicator;

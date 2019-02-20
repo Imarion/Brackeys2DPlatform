@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1908604078624050073}
   - component: {fileID: 10005764}
   - component: {fileID: 1908604078648180887}
-  - component: {fileID: 6813168289682523385}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: GameMaster
@@ -70,8 +69,8 @@ MonoBehaviour:
   spawnDelay: 3.5
   spawnPrefab: {fileID: 7172448872788089608, guid: 808d5490e8770f34eb7866700b984a5d,
     type: 3}
-  respawnAudioCountdown: {fileID: 0}
-  spawnSoundName: Respawn
+  respawnCountdownSoundName: RespawnCountDown
+  spawnSoundName: Spawn
   cameraShake: {fileID: 10005764}
   gameOverUI: {fileID: 0}
   maxLives: 3
@@ -118,25 +117,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   timeBetweenWaves: 5
---- !u!114 &6813168289682523385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908604078624050076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78679d561ae4ef9478f635c1e5cca8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Respawn
-    clip: {fileID: 8300000, guid: 70a6713ea6f007145a6e456afb0d4266, type: 3}
-    volume: 0.7
-    pitch: 1
-    randomVolume: 0.1
-    randomPitch: 0.1
 --- !u!1 &8511248614622963458
 GameObject:
   m_ObjectHideFlags: 0

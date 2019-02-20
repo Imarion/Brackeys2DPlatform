@@ -24,14 +24,26 @@ public class Player : MonoBehaviour
 
     public int fallBoundary = -20;
 
+    public string deathSoundName = "DeathVoice";
+    public string damageSoundName = "DamageVoice";
+
+
     [SerializeField]
     private StatusIndicator statusIndicator;
+
+    AudioManager audioManager;
 
     public PlayerStats playerStats = new PlayerStats();
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No Audiomanager found in scene");
+        }
+
         playerStats.Init();
 
         if (statusIndicator == null)
@@ -54,8 +66,13 @@ public class Player : MonoBehaviour
     public void DamagePlayer(int damage) {
         playerStats.curHealth -= damage;
 
-        if (playerStats.curHealth <= 0) {
+        if (playerStats.curHealth <= 0)
+        {
+            audioManager.PlaySound(deathSoundName);
             GameMaster.KillPlayer(this);
+        }
+        else {
+            audioManager.PlaySound(damageSoundName);
         }
 
         statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
