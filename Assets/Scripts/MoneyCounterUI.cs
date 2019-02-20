@@ -17,7 +17,7 @@ public class MoneyCounterUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoneyText.text = "LIVES: " + GameMaster.Money;
+        MoneyText.text = "MONEY: " + GameMaster.Money;
     }
 }
 

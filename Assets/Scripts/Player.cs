@@ -5,40 +5,25 @@ using UnityStandardAssets._2D;
 
 public class Player : MonoBehaviour
 {
-    [System.Serializable]
-    public class PlayerStats {
-        public int maxHealth = 100;
-
-        private int _curHealth;
-
-        public int curHealth
-        {
-            get { return _curHealth; }
-            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
-        }
-
-        public void Init()
-        {
-            curHealth = maxHealth;
-        }
-    }
-
     public int fallBoundary = -20;
 
     public string deathSoundName = "DeathVoice";
     public string damageSoundName = "DamageVoice";
 
-
     [SerializeField]
     private StatusIndicator statusIndicator;
 
-    AudioManager audioManager;
+    private PlayerStats playerStats;
 
-    public PlayerStats playerStats = new PlayerStats();
+    AudioManager audioManager;    
 
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = PlayerStats.instance;
+
+        playerStats.curHealth = playerStats.maxHealth;
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -47,8 +32,6 @@ public class Player : MonoBehaviour
 
         GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggled;
 
-        playerStats.Init();
-
         if (statusIndicator == null)
         {
             Debug.LogError("Player: no status indicatior referenced");
@@ -56,6 +39,8 @@ public class Player : MonoBehaviour
         else {
             statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
         }
+
+        InvokeRepeating("RegenHealth", 1f / playerStats.healthRegenRate, 1f / playerStats.healthRegenRate);
     }
 
     // Update is called once per frame
@@ -64,6 +49,11 @@ public class Player : MonoBehaviour
         if (transform.position.y <= fallBoundary) {
             DamagePlayer(9999999);
         }
+    }
+
+    void RegenHealth() {
+        playerStats.curHealth += 1;
+        statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 
     void OnUpgradeMenuToggled(bool active) {
