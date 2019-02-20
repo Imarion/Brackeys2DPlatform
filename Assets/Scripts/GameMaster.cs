@@ -18,12 +18,22 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     private GameObject gameOverUI;
 
+    [SerializeField]
+    private GameObject upgradeUI;
+
     public static GameMaster gm;
 
     [SerializeField]
     private int maxLives = 3;
     private static int _remainingLives;
     public static int RemainingLives { get { return _remainingLives; } }
+
+    [SerializeField]
+    private int startingMoney;
+    public static int Money;
+
+    public delegate void UpgradeMenuCallback(bool active);
+    public UpgradeMenuCallback onToggleUpgradeMenu;
 
     private AudioManager audioManager;
 
@@ -43,6 +53,8 @@ public class GameMaster : MonoBehaviour
         }
         _remainingLives = maxLives;
 
+        Money = startingMoney;
+
         // caching
         audioManager = AudioManager.instance;
         if (audioManager == null)
@@ -54,7 +66,14 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.U)) {
+            ToggleUpgradeMenu();
+        }
+    }
+
+    private void ToggleUpgradeMenu() {
+        upgradeUI.SetActive(!upgradeUI.activeSelf);
+        onToggleUpgradeMenu.Invoke(upgradeUI.activeSelf);
     }
 
     public void EndGame() {

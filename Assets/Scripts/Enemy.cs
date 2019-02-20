@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAI))]
 public class Enemy : MonoBehaviour
 {
     [System.Serializable]
@@ -39,6 +40,8 @@ public class Enemy : MonoBehaviour
     {
         enemyStats.Init();
 
+        GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggled;
+
         if (statusIndicator != null) {
             statusIndicator.SetHealth(enemyStats.curHealth, enemyStats.maxHealth);
         }
@@ -69,6 +72,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void OnUpgradeMenuToggled(bool active)
+    {
+        // handle what happens when the upgrade menu is toggled
+        GetComponent<EnemyAI>().enabled = !active; 
+    }    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Player _player = collision.gameObject.GetComponent<Player>();
@@ -77,5 +86,10 @@ public class Enemy : MonoBehaviour
             _player.DamagePlayer(enemyStats.damage);
             DamageEnemy(9999999);
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggled;
     }
 }

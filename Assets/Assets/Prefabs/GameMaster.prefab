@@ -74,7 +74,9 @@ MonoBehaviour:
   gameOverSoundName: GameOver
   cameraShake: {fileID: 10005764}
   gameOverUI: {fileID: 0}
+  upgradeUI: {fileID: 0}
   maxLives: 3
+  startingMoney: 100
 --- !u!114 &10005764
 MonoBehaviour:
   m_ObjectHideFlags: 0

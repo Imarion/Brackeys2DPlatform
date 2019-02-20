@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
 public class Player : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class Player : MonoBehaviour
             Debug.LogError("No Audiomanager found in scene");
         }
 
+        GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggled;
+
         playerStats.Init();
 
         if (statusIndicator == null)
@@ -63,6 +66,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnUpgradeMenuToggled(bool active) {
+        // handle what happens when the upgrade menu is toggled
+        GetComponent<Platformer2DUserControl>().enabled = !active;
+        Weapon _weapon = GetComponentInChildren<Weapon>();
+        if (_weapon != null) {
+            _weapon.enabled = !active;
+        }
+    }
+
     public void DamagePlayer(int damage) {
         playerStats.curHealth -= damage;
 
@@ -76,5 +88,10 @@ public class Player : MonoBehaviour
         }
 
         statusIndicator.SetHealth(playerStats.curHealth, playerStats.maxHealth);
+    }
+
+    private void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggled;
     }
 }
